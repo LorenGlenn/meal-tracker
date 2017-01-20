@@ -8,7 +8,7 @@ import { Meal } from './meal.model';
   <h3>Here are your meals:</h3>
   <meals-list [childMealsList]="masterMealsList" (clickSender)="editMeal($event)"></meals-list>
   <hr>
-  <edit-meal></edit-meal>
+  <edit-meal [childSelectedMeal] = "selectedMeal" (doneButtonClickedSender)="finishedEditing()"></edit-meal>
   `
 })
 
