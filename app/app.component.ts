@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
+  currentFocus
+}
 
+export class Meal{
+  constructor(public name: string, public details: string, public calories: number) {  }
 }
