@@ -6,7 +6,7 @@ import { Meal } from './meal.model';
   template: `
   <h1>Meal Tracker</h1>
   <h3>Here are your meals:</h3>
-  <meals-list></meals-list>
+  <meals-list [childMealsList]="masterMealsList" (clickSender)="editMeal($event)"></meals-list>
   <hr>
   <div>
     <div *ngIf="selectedMeal">
@@ -26,6 +26,11 @@ import { Meal } from './meal.model';
 
 export class AppComponent {
   selectedMeal = null;
+
+  masterMealsList: Meal[] = [
+    new Meal('Steak', 'Ribeye 1lb', 800),
+    new Meal('Milk', 'Ribeye 1lb', 800)
+  ];
 
   editMeal(clickedMeal) {
     this.selectedMeal = clickedMeal;
