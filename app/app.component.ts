@@ -9,6 +9,7 @@ import { Meal } from './meal.model';
   <meals-list [childMealsList]="masterMealsList" (clickSender)="editMeal($event)"></meals-list>
   <hr>
   <edit-meal [childSelectedMeal] = "selectedMeal" (doneButtonClickedSender)="finishedEditing()"></edit-meal>
+  <new-meal (newMealSender) = "addMeal($event)"></new-meal>
   `
 })
 
@@ -16,8 +17,7 @@ export class AppComponent {
   selectedMeal = null;
 
   masterMealsList: Meal[] = [
-    new Meal('Steak', 'Ribeye 1lb', 800),
-    new Meal('Milk', 'Ribeye 1lb', 800)
+    new Meal('Steak', 'Ribeye 1lb', 800)
   ];
 
   editMeal(clickedMeal) {
@@ -26,5 +26,9 @@ export class AppComponent {
 
   finishedEditing() {
     this.selectedMeal = null;
+  }
+
+  addMeal(newMealFromChild: Meal) {
+    this.masterMealsList.push(newMealFromChild);
   }
 }
