@@ -5,9 +5,10 @@ import { Component } from '@angular/core';
   template: `
   <h1>Meal Tracker</h1>
   <ul>
-    <li *ngFor="let currentMeal of meals">{{currentMeal.name}}:
-      <li>{{currentMeal.details}}</li>
-      <li>{{currentMeal.calories}}</li> <button (click)="editMeal()">Edit!</button>
+    <li *ngFor="let currentMeal of meals">Name: {{currentMeal.name}}<br>
+      Details: {{currentMeal.details}} <br>
+      Calories: {{currentMeal.calories}} <br>
+      <button (click)="editMeal()">Edit!</button>
     </li>
   </ul>
   <hr>
@@ -21,7 +22,6 @@ import { Component } from '@angular/core';
   <label>Enter Meal Calories:</label>
   <input [(ngModel)]="selectedMeal.calories">
   </div>
- </div>
   `
 })
 
