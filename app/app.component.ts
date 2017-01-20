@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
     <li *ngFor="let currentMeal of meals">Name: {{currentMeal.name}}<br>
       Details: {{currentMeal.details}} <br>
       Calories: {{currentMeal.calories}} <br>
-      <button (click)="editMeal()">Edit!</button>
+      <button (click)="editMeal(currentMeal)">Edit!</button>
     </li>
   </ul>
   <hr>
@@ -27,12 +27,13 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   meals: Meal[] = [
-    new Meal('Steak', 'Ribeye 1lb', 800)
+    new Meal('Steak', 'Ribeye 1lb', 800),
+    new Meal('Milk', 'Ribeye 1lb', 800)
   ];
   selectedMeal: Meal = this.meals[0];
 
-  editMeal() {
-    alert("edit");
+  editMeal(clickedMeal) {
+    this.selectedMeal = clickedMeal;
   }
 }
 
