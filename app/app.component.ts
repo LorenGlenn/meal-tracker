@@ -8,19 +8,7 @@ import { Meal } from './meal.model';
   <h3>Here are your meals:</h3>
   <meals-list [childMealsList]="masterMealsList" (clickSender)="editMeal($event)"></meals-list>
   <hr>
-  <div>
-    <div *ngIf="selectedMeal">
-    <h2>{{selectedMeal.name}}</h2>
-    <h4>Edit Meal</h4>
-    <label>Enter Meal Name:</label>
-    <input [(ngModel)]="selectedMeal.name"><br>
-    <label>Enter Meal Details:</label>
-    <input [(ngModel)]="selectedMeal.details"><br>
-    <label>Enter Meal Calories:</label>
-    <input [(ngModel)]="selectedMeal.calories"><br>
-    <button (click)="finishedEditing()">Done</button>
-    </div>
-  </div>
+  <edit-meal></edit-meal>
   `
 })
 
